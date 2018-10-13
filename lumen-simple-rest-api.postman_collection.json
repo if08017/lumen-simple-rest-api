@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "c7e1ab79-0130-4eaa-bfd7-ace02655fbf4",
+		"name": "lumen-simple-rest-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Show posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/posts",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create posts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "alkdnas",
+							"type": "text"
+						},
+						{
+							"key": "body",
+							"value": "indah",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/posts",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show specific post by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/posts/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update specific post by ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/posts/1?title=newer post&body=New body",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"1"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "newer post"
+						},
+						{
+							"key": "body",
+							"value": "New body"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete specific post by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/posts/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
