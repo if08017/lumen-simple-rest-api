@@ -5,23 +5,25 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller{
   public function index(){
-    return Post::all();
+    $post = Post::all();
+    return response()->json($post, 200);
   }
   public function store(Request $request){
     $this->validate($request,[
       'title' => 'required',
       'body' => 'required'
     ]);
-    return Post::create($request->all());
+    $post = Post::create($request->all());
+    return response()->json($post, 201);
   }
   public function show($id){
     $post = Post::find($id);
     if(! $post){
       return response()->json([
         'message' => 'Post not found'
-      ]);
+      ], 200);
     }
-    return $post;
+    return response()->json($post, 200);
   }
   public function update(Request $request, $id){
     $post = Post::find($id);
@@ -30,7 +32,7 @@ class PostController extends Controller{
       return response()->json([
         'message' => 'Post has been updated',
         'post' => $post
-      ]);
+      ], 201);
     }
     return response()->json([
       'message' => 'Post not found'
@@ -42,7 +44,10 @@ class PostController extends Controller{
       $post->delete();
       return response()->json([
         'message' => 'Post has been deleted'
-      ]);
+      ], 201);
     }
+    return response()->json([
+      'message' => 'Post not found'
+    ], 404);
   }
 }

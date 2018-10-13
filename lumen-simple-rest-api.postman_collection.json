@@ -78,26 +78,35 @@
 			"name": "Update specific post by ID",
 			"request": {
 				"method": "PUT",
-				"header": [],
-				"body": {},
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "New content",
+							"type": "text"
+						},
+						{
+							"key": "body",
+							"value": "New body",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
-					"raw": "{{host}}/posts/1?title=newer post&body=New body",
+					"raw": "{{host}}/posts/2",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"posts",
-						"1"
-					],
-					"query": [
-						{
-							"key": "title",
-							"value": "newer post"
-						},
-						{
-							"key": "body",
-							"value": "New body"
-						}
+						"2"
 					]
 				}
 			},
