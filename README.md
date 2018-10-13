@@ -6,20 +6,29 @@
 Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax.
 
 ## Download
-`git clone git@github.com:if08017/lumen-simple-rest-api.git`
+```
+git clone git@github.com:if08017/lumen-simple-rest-api.git
+```
 ## Provisioning
-`make provision` then change database configurations
+```
+make provision
+```
+Then change database configurations
 
 ## Running
-`composer update`
-`make migrate`
-`make start`
+```
+composer update
+make migrate
+make start
+```
 ## Access application
 `open http://localhost:8000`
 ## Postman Collection and environment
 Load postman config:
-`lumen-simple-rest-api.postman_collection.json`
-`lumen-simple-rest-api.postman_environment.json`
+```
+lumen-simple-rest-api.postman_collection.json
+lumen-simple-rest-api.postman_environment.json
+```
 
 
 # More information
