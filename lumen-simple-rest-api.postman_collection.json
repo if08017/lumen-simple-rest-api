@@ -6,17 +6,52 @@
 	},
 	"item": [
 		{
-			"name": "Show posts",
+			"name": "Homepage",
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "masto@masto.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "masto123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}",
+					"host": [
+						"{{host}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show posts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}"
+					}
+				],
 				"body": {},
 				"url": {
-					"raw": "{{host}}/posts",
+					"raw": "{{host}}/api/posts",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
+						"api",
 						"posts"
 					]
 				}
@@ -27,7 +62,12 @@
 			"name": "Create posts",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}"
+					}
+				],
 				"body": {
 					"mode": "formdata",
 					"formdata": [
@@ -44,11 +84,12 @@
 					]
 				},
 				"url": {
-					"raw": "{{host}}/posts",
+					"raw": "{{host}}/api/posts",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
+						"api",
 						"posts"
 					]
 				}
@@ -59,16 +100,22 @@
 			"name": "Show specific post by ID",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}"
+					}
+				],
 				"body": {},
 				"url": {
-					"raw": "{{host}}/posts/1",
+					"raw": "{{host}}/api/posts/3",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
+						"api",
 						"posts",
-						"1"
+						"3"
 					]
 				}
 			},
@@ -82,6 +129,10 @@
 					{
 						"key": "Content-Type",
 						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}"
 					}
 				],
 				"body": {
@@ -89,7 +140,7 @@
 					"urlencoded": [
 						{
 							"key": "title",
-							"value": "New content",
+							"value": "New content2",
 							"type": "text"
 						},
 						{
@@ -100,11 +151,12 @@
 					]
 				},
 				"url": {
-					"raw": "{{host}}/posts/2",
+					"raw": "{{host}}/api/posts/2",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
+						"api",
 						"posts",
 						"2"
 					]
@@ -116,16 +168,130 @@
 			"name": "Delete specific post by ID",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}"
+					}
+				],
 				"body": {},
 				"url": {
-					"raw": "{{host}}/posts/1",
+					"raw": "{{host}}/api/posts/2",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
+						"api",
 						"posts",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "masto",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "masto123",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "masto@masto2.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/register",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "masto@masto.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "masto123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show user ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "masto@masto.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "masto123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/user/1?api_token=c30fbc9248133150d2704a8fe12dc2007b0fbe88",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"user",
 						"1"
+					],
+					"query": [
+						{
+							"key": "api_token",
+							"value": "c30fbc9248133150d2704a8fe12dc2007b0fbe88"
+						}
 					]
 				}
 			},
